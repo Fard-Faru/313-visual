@@ -20,15 +20,21 @@ d3.csv("data.csv").then(data => {
     d.Total_years_dispatcher = +d.Total_years_dispatcher;
   });
 
-  // Set up scales
+  // Set up scales with padding
   const x = d3
     .scaleLinear()
-    .domain([0, d3.max(data, d => d.Total_years_present_job)])
+    .domain([
+      0,
+      d3.max(data, d => d.Total_years_present_job) * 1.1, // Add 10% padding
+    ])
     .range([0, width - margin.left - margin.right]);
 
   const y = d3
     .scaleLinear()
-    .domain([0, d3.max(data, d => d.Total_years_dispatcher)])
+    .domain([
+      0,
+      d3.max(data, d => d.Total_years_dispatcher) * 1.1, // Add 10% padding
+    ])
     .range([height - margin.top - margin.bottom, 0]);
 
   // Add X axis
