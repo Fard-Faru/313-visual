@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AG Grid Enterprise with Charts</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-enterprise/styles/ag-grid.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-enterprise/styles/ag-theme-alpine.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-charts-community/styles/ag-charts.css">
+</head>
+<body>
+
+  <h2>AG Grid with Integrated Charts</h2>
+  <div id="myGrid" class="ag-theme-alpine" style="height: 500px; width: 100%;"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ag-grid-enterprise/dist/ag-grid-enterprise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ag-charts-community/dist/ag-charts-community.min.js"></script>
+
+  <script>
+    agGrid.LicenseManager.setLicenseKey("YOUR_LICENSE_KEY");
+
+    const columnDefs = [
+      { headerName: "Name", field: "name", sortable: true, filter: true },
+      { headerName: "Age", field: "age", sortable: true, filter: true, chartDataType: 'category' },
+      { headerName: "City", field: "city", sortable: true, filter: true },
+      { headerName: "Score", field: "score", sortable: true, filter: true, chartDataType: 'series' }
+    ];
+    const gridOptions = {
+      columnDefs: columnDefs,
+      rowData: [
+        { name: "John Doe", age: 28, city: "New York", score: 90 },
+        { name: "Jane Smith", age: 34, city: "Los Angeles", score: 85 },
+        { name: "Mike Johnson", age: 45, city: "Chicago", score: 78 }
+      ],
+      enableCharts: true,
+      enableRangeSelection: true, 
+      defaultColDef: {
+        flex: 1,
+        minWidth: 100,
+        resizable: true
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const gridDiv = document.querySelector('#myGrid');
+      new agGrid.Grid(gridDiv, gridOptions);
+    });
+  </script>
+</body>
+</html>
