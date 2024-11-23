@@ -1,16 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica';
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
+  background: #0d1117;
+  color: white;
 }
 
 header {
-  background-color: #4CAF50;
+  background: linear-gradient(to right, #161b22, #361b42);
   color: white;
   padding: 1rem;
   text-align: center;
+  border-bottom: 1px solid gray;
 }
 
 main {
@@ -30,11 +31,12 @@ main {
 }
 
 footer {
-  background-color: #4CAF50;
+  background: linear-gradient(to right, #161b22, #361b42);
   color: white;
   text-align: center;
   padding: 1rem;
   position: fixed;
   bottom: 0;
   width: 100%;
+  border-top: 1px solid gray;
 }
